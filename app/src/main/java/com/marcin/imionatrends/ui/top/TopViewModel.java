@@ -28,7 +28,7 @@ public class TopViewModel extends AndroidViewModel {
     private final ExecutorService executorService = Executors.newSingleThreadExecutor();
     private final Handler mainHandler = new Handler(Looper.getMainLooper());
 
-    private String selectedYear = "2023"; // Domyślny rok
+    private String selectedYear = "2024"; // Domyślny rok
     private String selectedGender = "Wszyscy"; // Domyślna płeć
 
     public TopViewModel(@NonNull Application application) {

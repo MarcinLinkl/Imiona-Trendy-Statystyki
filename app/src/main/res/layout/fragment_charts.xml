@@ -5,24 +5,26 @@
             name="viewModel"
             type="com.marcin.imionatrends.ui.charts.ChartsViewModel"/>
     </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="28dp">
+        android:padding="16dp">
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint=" Szukaj imienia"
-            android:labelFor="@id/nameAutoCompleteTextView">
+            android:hint="Szukaj imienia"
+            android:labelFor="@id/nameAutoCompleteTextView"
+            android:layout_marginBottom="16dp">
 
             <AutoCompleteTextView
                 android:id="@+id/nameAutoCompleteTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="58dp"
-                />
+                android:contentDescription="Pole do wyszukiwania imienia"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.chip.ChipGroup
@@ -30,23 +32,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:layout_margin="16dp"
-            android:contentDescription="Group of selected names chips"/>
+            android:layout_marginBottom="16dp"
+            android:contentDescription="Wybrane imiona"/>
 
         <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/switchPercentage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Procenty"
-            android:layout_gravity="center"
-            android:contentDescription="Toggle percentage display mode"/>
+            android:layout_marginBottom="16dp"
+            android:contentDescription="Przełącz tryb wyświetlania na procenty"/>
 
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/lineChart"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1" />
-
+            android:layout_weight="1"
+            android:contentDescription="Wykres linii"/>
     </LinearLayout>
 </layout>

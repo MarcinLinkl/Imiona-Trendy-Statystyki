@@ -26,9 +26,9 @@ import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TAG = "DatabaseHelper";
-    private static final String DATABASE_NAME = "imiona_trends.db";
+    private static final String DATABASE_NAME = "imiona_trendy.db";
     private static final int DATABASE_VERSION = 1;
-    private static final int LAST_YEAR_AVAILABLE_DATA = 2023;
+    private static final int LAST_YEAR_AVAILABLE_DATA = 2024;
 
     // Table names
     private static final String TABLE_GIVEN_FIRST_NAME_DATA = "given_firstname_data";

@@ -13,7 +13,9 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.ValueFormatter;
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.google.android.material.chip.Chip;
 import com.marcin.imionatrends.R;
 import com.marcin.imionatrends.databinding.FragmentChartsBinding;
@@ -58,6 +60,15 @@ public class ChartsFragment extends Fragment {
         chartsViewModel.getChartData().observe(getViewLifecycleOwner(), lineData -> {
             if (lineData != null) {
                 lineChart.setData(lineData);
+                for (ILineDataSet set : lineChart.getData().getDataSets()) {
+                    LineDataSet dataSet = (LineDataSet) set;
+                    dataSet.setLineWidth(3f);   //
+                    dataSet.setDrawCircles(false);  //
+//                    dataSet.setCircleRadius(4f);   //
+                    dataSet.setDrawValues(false);
+                }
+
+
 
                 // Customize the X-axis to display years without commas
                 XAxis xAxis = lineChart.getXAxis();
@@ -108,20 +119,55 @@ public class ChartsFragment extends Fragment {
     }
 
     private void styleLineChart() {
-        // Customize line chart appearance
+//        add line width
+//        lineChart.set
+        // Opis wyłączony
         lineChart.getDescription().setEnabled(false);
         lineChart.setDrawGridBackground(false);
         lineChart.setDrawBorders(false);
 
-        lineChart.getXAxis().setTextColor(ContextCompat.getColor(getContext(), R.color.line_chart_axis_color));
-        lineChart.getAxisLeft().setTextColor(ContextCompat.getColor(getContext(), R.color.line_chart_axis_color));
+        // Animacja
+        lineChart.animateX(1000);
 
-        lineChart.getAxisRight().setEnabled(false);
-        lineChart.getXAxis().setDrawGridLines(false);
-        lineChart.getAxisLeft().setDrawGridLines(true);
+        // OŚ X
+        XAxis xAxis = lineChart.getXAxis();
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis.setDrawGridLines(false);
+        xAxis.setGranularity(1f); // krok co 1 (np. rok)
+        xAxis.setTextSize(12f);
+        xAxis.setTextColor(ContextCompat.getColor(getContext(), R.color.line_chart_axis_color));
+        xAxis.setLabelRotationAngle(-45); // obrócenie etykiet, żeby się nie ściskały
+
+        // OŚ Y lewa
+        lineChart.getAxisLeft().setDrawGridLines(false);
         lineChart.getAxisLeft().setGridColor(ContextCompat.getColor(getContext(), R.color.line_chart_grid_color));
-        lineChart.getAxisLeft().setGridLineWidth(1f);
+//        lineChart.getAxisLeft().setGridLineWidth(1f);
+        lineChart.getAxisLeft().setTextColor(ContextCompat.getColor(getContext(), R.color.line_chart_axis_color));
+        lineChart.getAxisLeft().setTextSize(12f);
+
+        // Wyłącz prawa oś Y
+        lineChart.getAxisRight().setEnabled(false);
+
+        // LEGENDA
+        lineChart.getLegend().setEnabled(true);
+        lineChart.getLegend().setTextSize(14f);
         lineChart.getLegend().setTextColor(ContextCompat.getColor(getContext(), R.color.line_chart_legend_color));
+        lineChart.getLegend().setWordWrapEnabled(true); // zawijanie, jeśli dużo serii
+        lineChart.getLegend().setVerticalAlignment(com.github.mikephil.charting.components.Legend.LegendVerticalAlignment.TOP);
+        lineChart.getLegend().setHorizontalAlignment(com.github.mikephil.charting.components.Legend.LegendHorizontalAlignment.CENTER);
+        lineChart.getLegend().setOrientation(com.github.mikephil.charting.components.Legend.LegendOrientation.HORIZONTAL);
+        lineChart.getLegend().setDrawInside(false);
+
+        // Padding wykresu (żeby nie ściskał się do krawędzi)
+        lineChart.setExtraOffsets(8f, 8f, 8f, 8f);
+
+//        // Interakcja
+//        lineChart.setPinchZoom(true);   // pinch zoom
+//        lineChart.setScaleEnabled(true);
+//        lineChart.setDragEnabled(true);
+
+        // Odśwież
+        lineChart.invalidate();
     }
 
     @Override

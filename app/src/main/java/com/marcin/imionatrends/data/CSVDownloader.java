@@ -23,7 +23,12 @@ public class CSVDownloader {
             "https://api.dane.gov.pl/resources/44825,imiona-meskie-nadane-dzieciom-w-polsce-w-2022-r-imie-pierwsze/csv", 2022,
             "https://api.dane.gov.pl/resources/44824,imiona-zenskie-nadane-dzieciom-w-polsce-w-2022-r-imie-pierwsze/csv", 2022,
             "https://api.dane.gov.pl/resources/54099,imiona-meskie-nadane-dzieciom-w-polsce-w-2023-r-imie-pierwsze/csv", 2023,
-            "https://api.dane.gov.pl/resources/54100,imiona-zenskie-nadane-dzieciom-w-polsce-w-2023-r-imie-pierwsze/csv", 2023
+            "https://api.dane.gov.pl/resources/54100,imiona-zenskie-nadane-dzieciom-w-polsce-w-2023-r-imie-pierwsze/csv", 2023,
+            "https://api.dane.gov.pl/resources/63900,imiona-meskie-nadane-dzieciom-w-polsce-w-2024-r-imie-pierwsze/csv",2024,
+            "https://api.dane.gov.pl/resources/63899,imiona-zenskie-nadane-dzieciom-w-polsce-w-2024-r-imie-pierwsze/csv",2024
+
+
+
     );
     private static final String CSV_NAMES_LIVE_MALE_FROM_2024 = "https://api.dane.gov.pl/resources/54109,lista-imion-meskich-w-rejestrze-pesel-stan-na-19012023-imie-pierwsze/csv";
     private static final String CSV_NAMES_LIVE_FEMALE_FROM_2024 = "https://api.dane.gov.pl/resources/54110,lista-imion-zenskich-w-rejestrze-pesel-stan-na-19012024-imie-pierwsze/csv";
