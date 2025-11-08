@@ -15,16 +15,20 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             android:hint="Szukaj imienia"
-            android:labelFor="@id/nameAutoCompleteTextView"
-            android:layout_marginBottom="16dp">
+            android:labelFor="@id/nameAutoCompleteTextView">
 
             <AutoCompleteTextView
                 android:id="@+id/nameAutoCompleteTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:contentDescription="Pole do wyszukiwania imienia"
+                android:inputType="text"
                 android:minHeight="58dp"
-                android:contentDescription="Pole do wyszukiwania imienia"/>
+                android:paddingLeft="15dp"
+
+                />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.chip.ChipGroup
